@@ -29,7 +29,7 @@ const Notes = () => {
 
     return  <div className='container'>
                 <h1>These are your notes:</h1>
-                {notes.map(note => 
+                {notes && notes.map(note => 
                 <div>
                     <h2>{note.title}</h2>
                     <p>{note.content}</p> 

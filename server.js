@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 require('dotenv').config();
 
 app.use(cors());
@@ -23,7 +24,7 @@ app.use('/', require('./routes/noteRoute'));
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "notepad/build")));
 
-var port = process.env.PORT || '3031';
+var port = process.env.PORT || '3001';
 
 
 app.listen(port, function() {
