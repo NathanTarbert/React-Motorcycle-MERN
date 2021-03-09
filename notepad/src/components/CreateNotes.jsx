@@ -30,7 +30,7 @@ const CreateNotes = () => {
             author: input.author
         };
         
-        axios.post('http://localhost:3001/create', newNote);
+        axios.post('/create', newNote);
         history.push('/notes');
     };
 
