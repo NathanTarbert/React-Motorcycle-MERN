@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState, useParams } from 'react';
 
-const Notes = () => {
+const Notes = () => { 
+    // const { id } = useParams();//grab the id for the blog id   
     const [notes, setNotes] = useState([{
         title: '',
         content: '',
@@ -17,16 +18,27 @@ const Notes = () => {
         .then(jsonRes => setNotes(jsonRes));
     });
 
-    return <div className='container'>
-            <h1>These are your notes:</h1>
-            {notes.map(note => 
-            <div>
-                <h2>{note.title}</h2>
-                <p>{note.content}</p> 
-                <p>{note.author}</p>
-            </div>                
-            )}
-        </div>          
+    // const handleClick = () => {
+    //     fetch('/notes' + notes.id, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(() => {
+    //         console.log('the notepad has been deleted');
+    //     });
+    // };
+
+    return  <div className='container'>
+                <h1>These are your notes:</h1>
+                {notes.map(note => 
+                <div>
+                    <h2>{note.title}</h2>
+                    <p>{note.content}</p> 
+                    <p>Written by {note.author}</p>
+                    {/* <button onClick={handleClick}>DELETE</button>*/}
+                    <button>This button is temporary but will be delete</button>
+                </div>                
+                )}
+            </div>             
       
 }
  

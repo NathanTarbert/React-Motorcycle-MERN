@@ -12,9 +12,7 @@ router.route('/create').post((req, res) => {
         content,
         author
     });
-
-    newNote.save();
-    
+    newNote.save();    
 });
 
 router.route('/notes').get((req, res) => {

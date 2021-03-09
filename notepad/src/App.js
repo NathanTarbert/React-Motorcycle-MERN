@@ -1,16 +1,18 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Notes from './components/Notes';
 import CreateNotes from './components/CreateNotes';
+import ErrorPage from './components/Error';
 
 function App() {
   return(
     <Router>
       <Navbar />
 
-      <Route path="/" exact>
+      <Switch>
+         <Route path="/" exact>
         <Home />
       </Route>
 
@@ -22,9 +24,13 @@ function App() {
         <CreateNotes />
       </Route>
 
+      <Route path="*">
+        <ErrorPage />
+      </Route>
+      </Switch>     
+
     </Router>
   )   
-  
 }
 
 export default App;
