@@ -23,7 +23,25 @@ app.use('/', require('./routes/noteRoute'));
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "notepad/build")));
 
+// function normalizePort(val) {
+//   var port = parseInt(val, 10);
 
-app.listen(3001, function() {
-    console.log('db connected to port 3001');
+//   if (isNaN(port)) {
+//     // named pipe
+//     return val;
+//   }
+
+//   if (port >= 0) {
+//     // port number
+//     return port;
+//   }
+
+//   return false;
+// }
+
+var port = process.env.PORT || '3031';
+
+
+app.listen(port, function() {
+    console.log(`db connected to port ${port}`);
 });
