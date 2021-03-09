@@ -20,6 +20,10 @@ mongoose.connect(process.env.DB_URI,  {
 
 app.use('/', require('./routes/noteRoute'));
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "notepad/build")));
+
+
 app.listen(3001, function() {
     console.log('db connected to port 3001');
 });
