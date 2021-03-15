@@ -1,21 +1,22 @@
 import React, { useEffect, useState, useParams } from 'react';
 
-const Notes = () => { 
+const Posts = () => { 
     // const { id } = useParams();//grab the id for the blog id   
-    const [notes, setNotes] = useState([{
+    const [posts, setPosts] = useState([{
         title: '',
+        imageUrl: '',
         content: '',
-        author: ''
+        creator: ''
     }]);
 
     useEffect(() => {
-        fetch('/notes')
+        fetch('/posts')
         .then(res => {
             if(res.ok) {
                 return res.json();
             }
         })
-        .then(jsonRes => setNotes(jsonRes));
+        .then(jsonRes => setPosts(jsonRes));
     });
 
     // const handleClick = () => {
@@ -29,11 +30,12 @@ const Notes = () => {
 
     return  <div className='post-container'>
                 <h1>These are your notes:</h1>
-                {notes && notes.map(note => 
+                {posts && posts.map(post => 
                 <div>
-                    <h2>{note.title}</h2>
-                    <p>{note.content}</p> 
-                    <p>Written by {note.author}</p>
+                    <h2>{post.title}</h2>
+                    <img src={post.imageUrl} alt='motorcycle'/>
+                    <p>{post.content}</p> 
+                    <p>Written by {post.creator}</p>
                     {/* <button onClick={handleClick}>DELETE</button>*/}
                     <button>This button is temporary but will be delete</button>
                 </div>                
@@ -42,4 +44,4 @@ const Notes = () => {
       
 }
  
-export default Notes;
+export default Posts;

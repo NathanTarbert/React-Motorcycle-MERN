@@ -6,8 +6,9 @@ const CreateNotes = () => {
     const history = useHistory();
     const [input, setInput] = useState({
         title: '',
+        imageUrl: '',
         content: '',
-        author: ''
+        creator: ''
     });
 
     const  handleChange = (event) => {
@@ -26,12 +27,13 @@ const CreateNotes = () => {
         event.preventDefault();
         const newNote = {
             title: input.title,
+            imageUrl: input.imageUrl,
             content: input.content,
-            author: input.author
+            creator: input.creator
         };
         
         axios.post('/create', newNote);
-        history.push('/notes');
+        history.push('/posts');
     };
 
     return (
@@ -44,11 +46,11 @@ const CreateNotes = () => {
                 <div className='form-group'>
                     <textarea onChange={handleChange} name='content' value={input.content} autoComplete='off' className='form-control' placeholder='note content...'></textarea>
                 </div>
-                {/* <div className='form-group'>
-                    <input onChange={handleChange} name='imageUrl' value={input.imageUrl} autoComplete='off' className='form-control' placeholder='image here...'></input>
-                </div>  */}
                 <div className='form-group'>
-                    <input onChange={handleChange} name='author' value={input.author} autoComplete='off' className='form-control' placeholder='author here...'></input>
+                    <input onChange={handleChange} name='imageUrl' value={input.imageUrl} autoComplete='off' className='form-control' placeholder='image here...'></input>
+                </div> 
+                <div className='form-group'>
+                    <input onChange={handleChange} name='creator' value={input.creator} autoComplete='off' className='form-control' placeholder='creator here...'></input>
                 </div>              
                 
                 <button onClick={handleClick} className='btn btn-large btn-info'>Add Note</button>

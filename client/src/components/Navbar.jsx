@@ -5,9 +5,9 @@ import "./Navbar.css";
 
 function Navbar() {
     return <nav className="navbar bg-dark container">
-        <h4>< Link className="link" to="/">Home</Link></h4>
-        <h4><Link className="link" to="/notes">Notes</Link></h4>
-        <h4><Link className="link" to="/create">Create Notes</Link></h4>
+        <h4>< Link className="link" to="/">About</Link></h4>
+        <h4><Link className="link" to="/posts">Posts</Link></h4>
+        <h4><Link className="link" to="/create">Create Post</Link></h4>
 
     </nav>
 }

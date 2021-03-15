@@ -1,22 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const Note = require('../models/noteModel');
+const Post = require('../models/noteModel');
 
 
 router.route('/create').post((req, res) => {
     const title = req.body.title;
+    const imageUrl = req.body.imageUrl;
     const content = req.body.content;
-    const author = req.body.author;
-    const newNote = new Note({
+    const creator = req.body.creator;
+    const newNote = new Post({
         title,
+        imageUrl,
         content,
-        author
+        creator
     });
     newNote.save();    
 });
 
-router.route('/notes').get((req, res) => {
-    Note.find()
+router.route('/posts').get((req, res) => {
+    Post.find()
     .then(foundNotes => res.json(foundNotes));
 });
 

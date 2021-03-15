@@ -2,8 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Notes from './components/Notes';
-import CreateNotes from './components/CreateNotes';
+import Posts from './components/Posts';
+import Create from './components/Create';
 import ErrorPage from './components/Error';
 
 function App() {
@@ -16,12 +16,12 @@ function App() {
         <Home />
       </Route>
 
-      <Route path="/notes">
-        <Notes />
+      <Route path="/posts">
+        <Posts />
       </Route>
 
       <Route path="/create">
-        <CreateNotes />
+        <Create />
       </Route>
 
       <Route path="*">
