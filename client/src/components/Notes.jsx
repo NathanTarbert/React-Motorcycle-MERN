@@ -27,7 +27,7 @@ const Notes = () => {
     //     });
     // };
 
-    return  <div className='container'>
+    return  <div className='post-container'>
                 <h1>These are your notes:</h1>
                 {notes && notes.map(note => 
                 <div>

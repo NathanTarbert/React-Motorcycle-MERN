@@ -11,3 +11,7 @@ button {
 p {
     color: indigo;
 }
+
+div.post-container {
+    border-color: gray;
+}
