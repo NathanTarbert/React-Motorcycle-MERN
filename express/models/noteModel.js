@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 
-const notesSchema = {
+const postSchema = {
     title: String,
     content: String,
-    // imageUrl: String,
-    author: String,
-    //  tags: [String],
+    imageUrl: String,
+    creator: String,
+     tags: [String],
     // selectedFile: String,
-    // likeCount: {
-    //     type: Number,
-    //     default: 0
-    // },
-    // createAt: {
-    //     type: Date,
-    //     default: new Date()
-    // }
+    likeCount: {
+        type: Number,
+        default: 0
+    },
+    createAt: {
+        type: Date,
+        default: new Date()
+    }
 };
 
-const Note = mongoose.model('Note', notesSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = Note;
+module.exports = Post;

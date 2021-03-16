@@ -1,23 +1,36 @@
 const express = require('express');
 const router = express.Router();
-const Note = require('../models/noteModel');
+const Post = require('../models/noteModel');
 
 
 router.route('/create').post((req, res) => {
     const title = req.body.title;
+    const imageUrl = req.body.imageUrl;
     const content = req.body.content;
-    const author = req.body.author;
-    const newNote = new Note({
+    const creator = req.body.creator;
+    const likeCount = req.body.likeCount;
+    const tags = req.body.tags;
+    const createAt = req.body.createAt;
+
+    const newNote = new Post({
         title,
+        imageUrl,
         content,
-        author
+        creator,
+        tags,
+        likeCount,
+        createAt
     });
     newNote.save();    
 });
 
-router.route('/notes').get((req, res) => {
-    Note.find()
-    .then(foundNotes => res.json(foundNotes));
+router.get('/posts', async (req, res) => {
+    try {
+        const newPost = await Post.find(); 
+        res.json(newPost);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
 module.exports = router;
