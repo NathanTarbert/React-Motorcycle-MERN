@@ -5,16 +5,16 @@ const postSchema = {
     content: String,
     imageUrl: String,
     creator: String,
-    //  tags: [String],
+     tags: [String],
     // selectedFile: String,
-    // likeCount: {
-    //     type: Number,
-    //     default: 0
-    // },
-    // createAt: {
-    //     type: Date,
-    //     default: new Date()
-    // }
+    likeCount: {
+        type: Number,
+        default: 0
+    },
+    createAt: {
+        type: Date,
+        default: new Date()
+    }
 };
 
 const Post = mongoose.model('Post', postSchema);

@@ -8,18 +8,29 @@ router.route('/create').post((req, res) => {
     const imageUrl = req.body.imageUrl;
     const content = req.body.content;
     const creator = req.body.creator;
+    const likeCount = req.body.likeCount;
+    const tags = req.body.tags;
+    const createAt = req.body.createAt;
+
     const newNote = new Post({
         title,
         imageUrl,
         content,
-        creator
+        creator,
+        tags,
+        likeCount,
+        createAt
     });
     newNote.save();    
 });
 
-router.route('/posts').get((req, res) => {
-    Post.find()
-    .then(foundNotes => res.json(foundNotes));
+router.get('/posts', async (req, res) => {
+    try {
+        const newPost = await Post.find(); 
+        res.json(newPost);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
 module.exports = router;
