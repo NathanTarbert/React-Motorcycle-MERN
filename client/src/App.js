@@ -9,45 +9,38 @@ import Details from './components/Details';
 import Login from './components/Login';
 import Register from './components/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Button from './Button';
+import Button from './components/Button';
+import Search from './components/Search';
+import Edit from './components/Edit';
+// import Form from './components/Form';
 
 function App() {
   return(
     <Router>
       <NavigationBar />
-
+      
       <Switch>
 
-      <Route exact path="/">
-        <Posts />
-      </Route>
+      <Route exact path='/' component={Posts}/>
 
-      <Route path="/about">
-        <About />
-      </Route>
+      <Route path='edit/:id' component={Edit}/>      
 
-      <Route path="/details">
-        <Details />
-      </Route>
+      <Route path='/details/:id' component={Details}/>
 
-      <Route path="/create">
-        <Create />
-      </Route>
+      <Route path='/about' component={About}/>
 
-      <Route path="/login">
-        <Login />
-      </Route>
+      <Route path='/create' component={Create}/>
 
-      <Route path="/register">
-        <Register />
-      </Route>
+      <Route path='/login' component={Login}/>
 
-      <Route path="*">
-        <ErrorPage />
-      </Route>
+      <Route path='/register' component={Register}/>
+
+      <Route path='/search' component={Search}/>
+
+      <Route path='*' component={ErrorPage}/>
 
       </Switch>     
-
+      
     </Router>
   )   
 }

@@ -4,13 +4,15 @@ const Post = require('../models/noteModel');
 
 
 router.route('/create').post((req, res) => {
-    const title = req.body.title;
-    const imageUrl = req.body.imageUrl;
-    const content = req.body.content;
-    const creator = req.body.creator;
-    const likeCount = req.body.likeCount;
-    const tags = req.body.tags;
-    const createAt = req.body.createAt;
+    const data = req.body;
+    
+    const title = data.title;
+    const imageUrl = data.imageUrl;
+    const content = data.content;
+    const creator = data.creator;
+    const likeCount = data.likeCount;
+    const tags = data.tags;
+    const createAt = data.createAt;
 
     const newNote = new Post({
         title,
