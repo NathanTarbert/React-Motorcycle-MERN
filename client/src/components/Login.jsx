@@ -10,7 +10,7 @@ const Login = () => {
                 <Col xs={'auto'}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Username</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter username" />
                     <Form.Text className="text-muted">
                     We'll never share your information with anyone else.
                     </Form.Text>
@@ -22,9 +22,9 @@ const Login = () => {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 </Col>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Take the survey?" />
-                </Form.Group>
+                {/* <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="" />
+                </Form.Group> */}
                 <Col xs={'auto'}>
                 <Button variant="primary" type="submit">
                     Submit

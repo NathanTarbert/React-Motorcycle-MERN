@@ -1,12 +1,16 @@
-import React from 'react';
-import './Button.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+// import './Button.css';
+// import { Link } from 'react-router-dom';
 
-const Button = () => {
+const Button = (props) => {
+    const [size] = useState(props.size);
+    const [color] = useState(props.color);
+    const [content] = useState(props.content);
+
     return (
-        <Link to='sign-up'>
-            <button className='btn'>Register</button>
-        </Link >
+        
+            <button style={{ backgroundColor: color, fontsize: size }}>{content}</button>
+        
     );
 }
 

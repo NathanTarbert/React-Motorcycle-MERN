@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Link } from 'react';
 import { Card, Container } from 'react-bootstrap';
+// import { Button } from './Button';
 
 const Posts = () => { 
     // const { id } = useParams();//grab the id for the blog id   
@@ -9,11 +10,12 @@ const Posts = () => {
         content: '',
         creator: '',
         tags: [],
-        createAt: ''
+        createAt: '',
+        likeCount: []
     }]);
 
     useEffect(() => {
-        fetch('/posts')
+        fetch('/posts')//localhost:3001/
         .then(res => {
             if(res.ok) {
                 return res.json();
@@ -21,7 +23,9 @@ const Posts = () => {
         })
         .then(jsonRes => setPosts(jsonRes))
         .catch(err => console.log(err));
-    });
+    },[]);
+
+        const [likeCount, setCount] = useState(0);
 
     // const handleClick = () => {
     //     fetch('/notes' + notes.id, {
@@ -34,10 +38,13 @@ const Posts = () => {
 
     return  (  <div className='post-container'>  
                 <Container>              
-                <h1>These are your posts:</h1>
+                <h1>Welcome:</h1>
+
+                <button onClick={() => setCount(likeCount + 1)}>Likes: {likeCount}</button>
+
                 </Container>
                 {posts && posts.map(post => 
-                <div>
+                <tr key={post._id}>
                     <Container>
                    
                     <Card key={post._id}>
@@ -46,16 +53,22 @@ const Posts = () => {
                     <Card.Title>Title: {post.title}</Card.Title>
                     <Card.Text>{post.content}</Card.Text>
                     <Card.Text>{post.creator}</Card.Text>
-                    <Card.Text>Likes:{post.likeCount}</Card.Text>
-                    <Card.Text>Tags:{post.tags}</Card.Text>
+                    <Card.Text>
+                        <button onClick={() => setCount(likeCount + 1)}>
+                        Likes:
+                        </button><h2>{post.likeCount}</h2>
+                       {/* <Link to={`/edit/${post._id}`}>Edit</Link> */}
+                    </Card.Text>                        
+                    <Card.Text>Tags: #{post.tags}</Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    <small className="text-muted">{post.createAt}</small>
+                    <small className="text-muted">{post.createAt}></small>                  
                     </Card.Footer>
+                    
                     </Card>
             
                   </Container>
-                </div> 
+                </tr> 
                                
                 
                 )}
