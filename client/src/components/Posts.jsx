@@ -1,9 +1,11 @@
-import React, { useEffect, useState, Link } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
-// import { Button } from './Button';
+import { Link, useParams } from "react-router-dom";
+import * as ReactBootstrap from 'react-bootstrap';
 
 const Posts = () => { 
-    // const { id } = useParams();//grab the id for the blog id   
+    const { _id } = useParams();//grab the id for the blog id  
+    // console.log('the id is', id); 
     const [posts, setPosts] = useState([{
         title: '',
         imageUrl: '',
@@ -27,16 +29,8 @@ const Posts = () => {
 
         const [likeCount, setCount] = useState(0);
 
-    // const handleClick = () => {
-    //     fetch('/notes' + notes.id, {
-    //         method: 'DELETE'
-    //     })
-    //     .then(() => {
-    //         console.log('the notepad has been deleted');
-    //     });
-    // };
-
-    return  (  <div className='post-container'>  
+    return  (  
+            <div className='post-container'>  
                 <Container>              
                 <h1>Welcome:</h1>
 
@@ -44,11 +38,11 @@ const Posts = () => {
 
                 </Container>
                 {posts && posts.map(post => 
-                <tr key={post._id}>
+                <div className='post-list' key={post._id}>
                     <Container>
                    
-                    <Card key={post._id}>
-                    <Card.Img style={{ width: '30rem' }} variant="top" src={post.imageUrl} />
+                    <Card>
+                    <Card.Img style={{ width: '30rem' }} variant="top" src={post.imageUrl} alt='motorcycle' />
                     <Card.Body>
                     <Card.Title>Title: {post.title}</Card.Title>
                     <Card.Text>{post.content}</Card.Text>
@@ -57,7 +51,11 @@ const Posts = () => {
                         <button onClick={() => setCount(likeCount + 1)}>
                         Likes:
                         </button><h2>{post.likeCount}</h2>
-                       {/* <Link to={`/edit/${post._id}`}>Edit</Link> */}
+                        <button>
+                        <Link to={`/details/${post._id}`}>
+                            <ReactBootstrap.Nav.Link href="#details">Details</ReactBootstrap.Nav.Link>
+                        </Link>
+                        </button>
                     </Card.Text>                        
                     <Card.Text>Tags: #{post.tags}</Card.Text>
                     </Card.Body>
@@ -68,8 +66,7 @@ const Posts = () => {
                     </Card>
             
                   </Container>
-                </tr> 
-                               
+                </div>                              
                 
                 )}
             </div>             

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {useHistory} from "react-router-dom";
 
-const CreateNotes = () => {
+const CreatePost = () => {
     const history = useHistory();
     const [input, setInput] = useState({
         title: '',
@@ -36,13 +36,13 @@ const CreateNotes = () => {
             creator: input.creator
         };
         
-        axios.post('/create', newNote);
+        axios.post('/edit', newNote);
         history.push('/');
     };
 
     return (
         <div className='container'>
-            <h1>Create Notes Page</h1>
+            <h1>Edit Page</h1>
             <form>
                 <div className='form-group'>
                     <input onChange={handleChange} name='title' value={input.title} autoComplete='off' className='form-control' placeholder='title here...'></input>
@@ -66,4 +66,4 @@ const CreateNotes = () => {
       );
 }
  
-export default CreateNotes;
+export default CreatePost;

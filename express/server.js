@@ -19,7 +19,7 @@ mongoose.connect(process.env.DB_URI,  {
     .then( (res) => console.log('db connected'))
     .catch((err) => console.log(err));
 
-app.use('/', require('./routes/noteRoute'));
+app.use('/', require('./routes/postRoute'));
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "notepad/build")));
