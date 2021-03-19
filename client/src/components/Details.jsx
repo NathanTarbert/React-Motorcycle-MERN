@@ -26,7 +26,7 @@ const Details = () => {
     useEffect(() => {
         const fetchPost = async () => {
           const post = await getPost(id);
-          console.log('post', post.id);
+        //   console.log('post', post.id);
           setPost(post);
         };
         fetchPost();
