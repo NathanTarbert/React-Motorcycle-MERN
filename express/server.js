@@ -22,7 +22,7 @@ mongoose.connect(process.env.DB_URI,  {
 app.use('/', require('./routes/postRoute'));
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "motorcycle-group/build")));
+app.use(express.static(path.join(__dirname, "notepad/build")));
 
 var port = process.env.PORT || '3001';
 
