@@ -1,6 +1,6 @@
-export const getPosts = () => fetch("http://localhost:3001/posts").then(res => res.json())
+export const getPosts = () => fetch("/posts").then(res => res.json())
 
-export const createPosts = (post) => fetch("http://localhost:3001/create", {
+export const createPosts = (post) => fetch("/create", {
   method: "POST",
   headers: {
     "Accept": "application/json",
@@ -9,7 +9,7 @@ export const createPosts = (post) => fetch("http://localhost:3001/create", {
   body: JSON.stringify(post)
 }); 
 
-export const editPosts = (post, id) => fetch(`http://localhost:3001/edit${id}`, {
+export const editPosts = (post, id) => fetch(`/edit${id}`, {
   method: "POST",
   headers: {
     "Accept": "application/json",
@@ -18,5 +18,5 @@ export const editPosts = (post, id) => fetch(`http://localhost:3001/edit${id}`, 
   body: JSON.stringify(post)
 });  
 
-export const getPost = (id) => fetch(`http://localhost:3001/details${id}`).then((res) =>  res.json())
+export const getPost = (id) => fetch(`/details${id}`).then((res) =>  res.json())
 // .then((json) => console.log(json)).catch((err) => console.log(err.message));
