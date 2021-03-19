@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import About from './components/About';
 import Posts from './components/Posts';
@@ -9,12 +9,14 @@ import Details from './components/Details';
 import Login from './components/Login';
 import Register from './components/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from './components/Button';
+// import Button from './components/Button';
 import Search from './components/Search';
 import Edit from './components/Edit';
 // import Form from './components/Form';
 
 function App() {
+  // const { id } = useParams();
+
   return(
     <Router>
       <NavigationBar />
