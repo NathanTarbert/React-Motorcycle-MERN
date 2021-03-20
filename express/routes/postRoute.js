@@ -10,17 +10,11 @@ router.get('/posts', async (req, res) => {//this is the home page
         res.status(500).json({ message: err.message });
     }
 });
+
 //get post by id
-router.get('/:id', getUser, async (req, res) => {// id is found by req.params.id
-    const id = req.params.id;
-    try {
-        Post.findById(id, (err, post) => {
-            console.log('this is the id', id);
-        res.json(post);
-        });
-    } catch (err) {
-        res.status(400).json({ message: err.message});
-    }   
+router.get('/:id', getUser, (req, res) => {
+    //returns json
+    res.status(200).json(res.post);
 });
 
 //create post
@@ -70,17 +64,19 @@ router.delete('/:id', getUser, async(req, res) => {// id is found by req.params.
 });
 
 async function getUser(req, res, next){//this function runs check to see if the user exists
-    let user; 
+    let post; 
+    console.log('the id from the backend is',req.params.id);
     try {
-        user = await User.findById(req.params._id);
-        if(user == null){
-            return res.status(404).json({ message: 'Cannot find user' });
+        post = await Post.findById(req.params.id);
+        console.log(post);
+        if(post == null){
+            return res.status(404).json({ message: 'Cannot find post' });
         }
     } catch (err) {
         return res.status(500).json({ message: err.message });
     }
 
-    res.user = user;
+    res.post = post;
     next();
 }
 

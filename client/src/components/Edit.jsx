@@ -60,7 +60,7 @@ const CreatePost = () => {
                     <input onChange={handleChange} name='tags' value={input.tags} autoComplete='off' className='form-control' placeholder='tags here...'></input>
                 </div>               
                 
-                <button onClick={handleClick} className='btn btn-large btn-info'>Add Note</button>
+                <button onClick={handleClick} className='btn btn-large btn-info'>Edit</button>
             </form>
         </div>
       );
