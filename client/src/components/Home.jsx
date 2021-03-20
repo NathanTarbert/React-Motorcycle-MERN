@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import * as ReactBootstrap from 'react-bootstrap';
 
 const Posts = () => { 
-    const { _id } = useParams();//grab the id for the blog id  
+    // const { id } = useParams();//grab the id for the blog id  
     // console.log('the id is', id); 
     const [posts, setPosts] = useState([{
         title: '',

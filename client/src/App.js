@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import About from './components/About';
-import Posts from './components/Posts';
+import Home from './components/Home';
 import Create from './components/Create';
 import ErrorPage from './components/Error';
 import Details from './components/Details';
@@ -23,9 +23,9 @@ function App() {
       
       <Switch>
 
-      <Route exact path='/' component={Posts}/>
+      <Route exact path='/' component={Home}/>
 
-      <Route path='edit/:id' component={Edit}/>      
+      <Route path='/edit/:id' component={Edit}/>      
 
       <Route path='/details/:id' component={Details}/>
 
