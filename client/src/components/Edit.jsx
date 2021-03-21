@@ -1,69 +1,36 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-import {useHistory} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Form } from './Form';
+import { useRouteMatch, useHistory } from "react-router-dom";
+import { getPosts, editPosts } from "./api";
 
-const CreatePost = () => {
-    const history = useHistory();
-    const [input, setInput] = useState({
-        title: '',
-        imageUrl: '',
-        content: '',
-        likeCount: '',
-        creator: '',
-        tags: ''
-    });
+export const EditPost = () => {
+  const match = useRouteMatch();
+  const [post, setTodo] = useState();
+  const history = useHistory();
 
-    const  handleChange = (event) => {
-        const {name, value} = event.target;
+  useEffect(() => {
+    const fetchPost = async () => {
+      const post = await getPosts(match.params.id);
+      setTodo(post);
+    }
+    fetchPost();
+  }, []);
 
-        setInput(prevInput =>{
-            return {
-                ...prevInput,
-                [name]: value,
-            };
-        });
-        console.log(event.target);
-    };
+  const onSubmit = async (data) => {
+    await editPosts(data, match.params.id);
+    history.push("/");
+  };
 
-    const handleClick = (event) => {
-        event.preventDefault();
-        const newNote = {
-            title: input.title,
-            imageUrl: input.imageUrl,
-            content: input.content,
-            tags: input.tags,
-            likeCount: input.likeCount,
-            creator: input.creator
-        };
-        
-        axios.post('/edit', newNote);
-        history.push('/');
-    };
-
-    return (
-        <div className='container'>
-            <h1>Edit Page</h1>
-            <form>
-                <div className='form-group'>
-                    <input onChange={handleChange} name='title' value={input.title} autoComplete='off' className='form-control' placeholder='title here...'></input>
-                </div>
-                <div className='form-group'>
-                    <textarea onChange={handleChange} name='content' value={input.content} autoComplete='off' className='form-control' placeholder='note content...'></textarea>
-                </div>
-                <div className='form-group'>
-                    <input onChange={handleChange} name='imageUrl' value={input.imageUrl} autoComplete='off' className='form-control' placeholder='image here...'></input>
-                </div> 
-                <div className='form-group'>
-                    <input onChange={handleChange} name='creator' value={input.creator} autoComplete='off' className='form-control' placeholder='creator here...'></input>
-                </div>
-                <div className='form-group'>
-                    <input onChange={handleChange} name='tags' value={input.tags} autoComplete='off' className='form-control' placeholder='tags here...'></input>
-                </div>               
-                
-                <button onClick={handleClick} className='btn btn-large btn-info'>Edit</button>
-            </form>
-        </div>
-      );
+  return post ? (
+    <div className="container">
+      <div className="mt-3">
+        <h3>Edit post Item</h3>
+        <Form post={post} onSubmit={onSubmit}/>
+      </div>
+    </div>
+     ) : (
+    <div>Loading...</div>
+     ); 
 }
  
-export default CreatePost;
+export default EditPost;

@@ -1,63 +1,49 @@
-// import { React, useState, useEffect } from 'react';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Button, Container } from 'react-bootstrap';
 
-// const Form = () => {
-    
-//     const [input, setInput] = useState({
-//             title: '',
-//             imageUrl: '',
-//             content: '',
-//             likeCount: '',
-//             creator: '',
-//             tags: ''
-//         });
+export const Form = ({ post, onSubmit }) => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: { 
+        title: post ? post.title : '',
+        content: post? post.content: '',
+        imageUrl: post? post.imageUrl: '',
+        creator: post? post.creator: '',
+        tags: post? post.tags: '' 
+    }
+  });
 
-//     const  handleChange = (event) => {
-//         const {name, value} = event.target;
+  const submitHandler = handleSubmit((data) => {
+    onSubmit(data);
+  });
 
-//         setInput(prevInput =>{
-//             return {
-//                 ...prevInput,
-//                 [name]: value,
-//             };
-//         });
-//         console.log(event.target);
-//     };
-
-//     const handleClick = (event) => {
-//         event.preventDefault();
-//         const newNote = {
-//             title: input.title,
-//             imageUrl: input.imageUrl,
-//             content: input.content,
-//             tags: input.tags,
-//             likeCount: input.likeCount,
-//             creator: input.creator
-//         };
-
-//     return (
-//         <div className='container'>
-//         <h1>Create Notes Page</h1>
-//         <form>
-//             <div className='form-group'>
-//                 <input onChange={handleChange} name='title' value={input.title} autoComplete='off' className='form-control' placeholder='title here...'></input>
-//             </div>
-//             <div className='form-group'>
-//                 <textarea onChange={handleChange} name='content' value={input.content} autoComplete='off' className='form-control' placeholder='note content...'></textarea>
-//             </div>
-//             <div className='form-group'>
-//                 <input onChange={handleChange} name='imageUrl' value={input.imageUrl} autoComplete='off' className='form-control' placeholder='image here...'></input>
-//             </div> 
-//             <div className='form-group'>
-//                 <input onChange={handleChange} name='creator' value={input.creator} autoComplete='off' className='form-control' placeholder='creator here...'></input>
-//             </div>
-//             <div className='form-group'>
-//                 <input onChange={handleChange} name='tags' value={input.tags} autoComplete='off' className='form-control' placeholder='tags here...'></input>
-//             </div>               
-            
-//             <button onClick={handleClick} className='btn btn-large btn-info'>Add Note</button>
-//         </form>
-//     </div>
-//       );
-// }
- 
-// export default Form;
+  return (
+    <form onSubmit={submitHandler}>
+      <div className="form-group">
+        <Container><label htmlFor="text">Form:</label></Container>
+        <div className='container'>
+            {/* <h1>Create Post Page</h1> */}
+            <form>
+                <div className='form-group'>
+                    <input name='title' ref={register}  autoComplete='off' className='form-control'></input>
+                </div>
+                <div className='form-group'>
+                    <textarea name='content' ref={register}  autoComplete='off' className='form-control'></textarea>
+                </div>
+                <div className='form-group'>
+                    <input name='imageUrl' ref={register}  autoComplete='off' className='form-control'></input>
+                </div> 
+                <div className='form-group'>
+                    <input name='creator' ref={register}  autoComplete='off' className='form-control'></input>
+                </div>
+                <div className='form-group'>
+                    <input name='tags' ref={register}  autoComplete='off' className='form-control'></input>
+                </div>               
+                
+                <Button type='submit' className='btn btn-large btn-info'>Post</Button>
+            </form>
+        </div>
+      </div>
+    </form>
+  );
+};
