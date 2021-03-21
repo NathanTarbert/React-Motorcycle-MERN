@@ -91,4 +91,13 @@
     font-size: 100px;
   }  */
 
+  div.card-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-weight: 800;
+  color: rgb(236, 235, 238);
+}
+.post-container {
+  width: '1rem'
+}
 
