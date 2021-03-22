@@ -2,28 +2,6 @@ import { React, useState } from 'react';
 import axios from 'axios';
 // import { createPosts } from './api';
 import {useHistory} from "react-router-dom";
-// import { Form } from './Form';
-// import { useForm } from 'react-hook-form';
-
-
-// export const CreatePost = () => {
-//     const history = useHistory();
-    
-//     const onSubmit = async (data) => {
-//       await createPosts(data);
-//       console.log('the data is', data);
-//       history.push("/");
-//     };
-  
-//     return (
-//       <div className="container">
-//         <div className="mt-3">
-//           <h3>Create Post</h3>
-//           < Form onSubmit={onSubmit} />
-//         </div>
-//       </div>
-//     );
-//   };
 
 const CreatePost = () => {
     const history = useHistory();
