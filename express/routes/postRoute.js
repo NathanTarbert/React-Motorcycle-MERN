@@ -35,20 +35,37 @@ router.post('/create', async (req, res) => {// id is found by req.params.id
         res.status(400).json({ message: err.message });
     }  
     
+    //get post by id
+router.get('/edit/:id', getUser, (req, res) => {
+    //returns json
+    res.status(200).json(res.post);
+});
+
 //updating post by id
-router.patch('/:id', getUser, async (req, res) => {// id is found by req.params.id
-    if(req.body.name != null){
-        res.user.name = req.body.name;
-    }
-    if(req.body.content != null){
-        res.user.content = req.body.content;
-    }
-    try {
-        const updatedUser = await res.user.save();
-        res.json(updatedUser);
-    } catch (err) {
-        res.status(400).json({ message: err.message})
-    }
+router.post('/edit/:id', getUser, async (req, res) => {// id is found by req.params.id
+    // console.log('res.post', res.post);
+    console.log('req.body.title', req.body);
+    // if(req.body.newTitle != null){
+    //     res.post.title = req.body.newTitle;
+    // }
+    // if(req.body.newContent != null){
+    //     res.post.content = req.body.newContent;
+    // }
+    // if(req.body.newImageUrl != null){
+    //     res.post.imageUrl = req.body.newImageUrl;
+    // }
+    // if(req.body.newCreator != null){
+    //     res.post.creator = req.body.newCreator;
+    // }
+    // if(req.body.newTags != null){
+    //     res.post.tags = req.body.newTags;
+    // }
+    // try {
+    //     const updatedPost = await res.post.save();
+    //     res.json(updatedPost);
+    // } catch (err) {
+    //     res.status(400).json({ message: err.message});
+    // }
 });
 
 //deleting post by id
@@ -65,10 +82,10 @@ router.delete('/:id', getUser, async(req, res) => {// id is found by req.params.
 
 async function getUser(req, res, next){//this function runs check to see if the user exists
     let post; 
-    console.log('the id from the backend is',req.params.id);
+    // console.log('the id from the backend is',req.params.id);
     try {
         post = await Post.findById(req.params.id);
-        console.log(post);
+        // console.log('post',post);
         if(post == null){
             return res.status(404).json({ message: 'Cannot find post' });
         }
@@ -77,6 +94,7 @@ async function getUser(req, res, next){//this function runs check to see if the 
     }
 
     res.post = post;
+    console.log('getUser helper', req);
     next();
 }
 

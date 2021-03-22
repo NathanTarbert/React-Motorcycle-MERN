@@ -10,14 +10,14 @@ const useFetch = (url) => {
         setTimeout(() => { //moch database request delay set to 1 second
             fetch(url, { signal: abortCont.signal })// will abort the fetch request if a new page is clicked.
                 .then(res => {
-                    console.log('url from useFetch',url);
+                    // console.log('url from useFetch',url);
                     if(!res.ok){
                         throw Error('Error Fetching The Data');
                     }
                     return res.json();
                 })
                 .then((data) => {
-                    console.log('this is coming from data', data);
+                    // console.log('this is coming from data', data);
                     setData(data);
                     setIsPending(false);
                     setError(null);
