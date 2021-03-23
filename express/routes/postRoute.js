@@ -15,7 +15,7 @@ router.get('/posts', async (req, res) => {//this is the home page
 //get post by id for the details page (working)
 router.get('/details/:id', getUser, (req, res) => {
     //returns json
-    console.log("this is the details get request firing");
+    // console.log("this is the details get request firing");
     res.status(200).json(res.post);
 });
 
@@ -79,9 +79,9 @@ router.post('/edit/:id', getUser, async (req, res) => {// id is found by req.par
 
 //deleting post by id
 router.get('/delete/:id', getUser, async(req, res) => {// id is found by req.params.id
-    console.log('this is firing from the delete');
+    console.log('this is firing from delete');
     try {
-        await res.user.remove();
+        await res.post.remove();
         res.json({ message: 'Deleted User' });
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -90,7 +90,7 @@ router.get('/delete/:id', getUser, async(req, res) => {// id is found by req.par
 
 async function getUser(req, res, next){//this function runs check to see if the user exists
     let post; 
-    console.log('the id from the backend is',req.params.id);
+    // console.log('the id from the backend is',req.params.id);
     try {
         post = await Post.findById(req.params.id);
         // console.log('post',post);
@@ -102,7 +102,7 @@ async function getUser(req, res, next){//this function runs check to see if the 
     }
 
     res.post = post;
-    console.log('getUser helper', post._id);
+    // console.log('getUser helper', post._id);
     next();
 }
 

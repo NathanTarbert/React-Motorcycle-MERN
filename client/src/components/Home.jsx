@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Container, Button, Nav} from 'react-bootstrap';
 import { Link  } from "react-router-dom";
 import * as ReactBootstrap from 'react-bootstrap';
+import './Box.css';
 
 const Posts = () => { 
     // const { id } = useParams();//grab the id for the blog id  
@@ -25,26 +26,25 @@ const Posts = () => {
         })
         .then(jsonRes => setPosts(jsonRes))
         .catch(err => console.log(err));
-    },[]);
+    },[posts]);
 
         const [likeCount, setCount] = useState(0);
 
         const renderCard = (card, index) => {
             return  (  
-            <div className='post-container' key={card._id}>  
-               <Card>
-                <Card.Img style={{width: '35rem'}} variant="top" src={card.imageUrl} />
+            <div className='post-container' >  
+               <Card className='box-home' style={{width: '28rem'}} key={card._id}>
+                <Card.Img variant="top" src={card.imageUrl} />
                 <Container>
                 <Button variant="outline-secondary">
-                <Link to={`/details/${card._id}`}><Nav.Link  href="#details">Details</Nav.Link></Link>
+                <Link to={`/details/${card._id}`}><Nav.Link href="#details">Details</Nav.Link></Link>
                 </Button>{' '}
                 <Button variant="outline-secondary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2>
                 </Button>
                 </Container>
                 <Card.Body>
                 <Card.Text>{card.title}</Card.Text>
-                </Card.Body>
-               
+                </Card.Body>             
                 
                 </Card>
             </div>             
