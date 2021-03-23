@@ -47,9 +47,9 @@ router.post('/create', async (req, res) => {// id is found by req.params.id
 
 //updating post by id
 router.post('/edit/:id', getUser, async (req, res) => {// id is found by req.params.id
-    console.log('this is the post request edit/id firing');
-    console.log('req.body.title', req.body.newTitle);
-    console.log('res.post.title',res.post.title);
+    // console.log('this is the post request edit/id firing');
+    // console.log('req.body.title', req.body.newTitle);
+    // console.log('res.post.title',res.post.title);
     if(req.body.newTitle != null){
         res.post.title = req.body.newTitle;
     }
@@ -78,7 +78,8 @@ router.post('/edit/:id', getUser, async (req, res) => {// id is found by req.par
 // });
 
 //deleting post by id
-router.delete('/:id', getUser, async(req, res) => {// id is found by req.params.id
+router.get('/delete/:id', getUser, async(req, res) => {// id is found by req.params.id
+    console.log('this is firing from the delete');
     try {
         await res.user.remove();
         res.json({ message: 'Deleted User' });

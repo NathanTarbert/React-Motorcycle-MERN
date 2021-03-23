@@ -12,7 +12,7 @@ const Details = () => {
     const history = useHistory();//get the history object
 
     const handleClick = () => {
-        fetch(`/${posts._id}`, {
+        fetch(`/delete/${posts._id}`, {
             method: 'DELETE'
         })
         .then(() => {
@@ -46,7 +46,7 @@ const Details = () => {
                         </Link>
                     </Button>
                     <Button onClick={handleClick} variant="outline-secondary">
-                        <Link to={`/${posts._id}`}>
+                        <Link to={`/delete/${posts._id}`}>
                             <Nav.Link href="details">Delete</Nav.Link>
                         </Link>
                     </Button>
