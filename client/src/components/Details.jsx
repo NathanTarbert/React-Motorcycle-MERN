@@ -1,12 +1,13 @@
 import React from "react";
-import { Nav, Button } from 'react-bootstrap';
+import { Container } from "react-bootstrap";
+import { Nav, Button, Card } from 'react-bootstrap';
 import { useHistory, useParams, Link } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const Details = () => {
     const { id } = useParams();//grab the id for the blog id
     // console.log('this is the id', id);   
-    const { data: posts, error, isPending } = useFetch(`/${id}`);
+    const { data: posts, error, isPending } = useFetch(`/details/${id}`);
     
     const history = useHistory();//get the history object
 
@@ -25,11 +26,19 @@ const Details = () => {
             { error && <div>{ error }</div>}
             { posts && (
                 <div>
-                    <img src={posts.imageUrl} alt='motorcycle'/>
+                    
+                    <Card>
+                    <Container>
+                    <Card.Img src={posts.imageUrl} style={{width: '30rem'}} alt='motorcycle'/>
+                   
                     <h2>{ posts.title }</h2>
+                    <br></br>
                     <p>Written by { posts.creator }</p>
                     <div> { posts.content }</div>
+                    <br></br>
                     <h4>Created at: { posts.createAt }</h4>
+                    </Container>
+                    </Card>
                     {/* <button onClick={handleClick}>delete</button> */}
                     <Button variant="outline-secondary">
                         <Link to={`/edit/${posts._id}`}>
@@ -41,6 +50,8 @@ const Details = () => {
                             <Nav.Link href="details">Delete</Nav.Link>
                         </Link>
                     </Button>
+                    
+                    
                 </div>
             )}
         </div>
