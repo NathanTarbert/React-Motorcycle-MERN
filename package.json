@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd express && npm install && node server.js",
-    "heroku-postbuild": "cd motorcycle-group && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
