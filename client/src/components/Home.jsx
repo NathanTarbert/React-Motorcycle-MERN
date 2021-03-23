@@ -36,11 +36,10 @@ const Posts = () => {
                 <Card.Img style={{width: '35rem'}} variant="top" src={card.imageUrl} />
                 <Container>
                 <Button variant="outline-secondary">
-                <Link to={`/details/${card._id}`}>
-                    <Nav.Link  href="#details">Details</Nav.Link>
-                </Link>
+                <Link to={`/details/${card._id}`}><Nav.Link  href="#details">Details</Nav.Link></Link>
+                </Button>{' '}
+                <Button variant="outline-secondary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2>
                 </Button>
-                <Button onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button>
                 </Container>
                 <Card.Body>
                 <Card.Text>{card.title}</Card.Text>

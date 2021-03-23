@@ -37,7 +37,7 @@ const CreatePost = () => {
             creator: input.creator
         };
         
-        axios.post('/create', newPost);
+        axios.post('/create', newPost).then((res) => console.log(res));
         history.push('/');
     };
 

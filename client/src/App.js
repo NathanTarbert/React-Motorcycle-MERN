@@ -25,7 +25,7 @@ function App() {
 
       <Route exact path='/' component={Home}/>
 
-      <Route path='/edit/:id' component={Edit}/>      
+      <Route exact path='/edit/:id' component={Edit}/>      
 
       <Route path='/details/:id' component={Details}/>
 
