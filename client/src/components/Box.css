@@ -1,0 +1,43 @@
+.box-home{
+    background-color: #dadae2;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    margin-top: 2%;
+    margin-left: 2%;
+    max-height: 75%;
+    -webkit-box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+    box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+}
+​
+.form{
+    background-color: #e5e5e9;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    margin-top: 5%;
+    max-height: 75%;
+    max-width: 50%;
+    -webkit-box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+    box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+}
+​
+.box-home-two{
+    background-color: #d8d8e9;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    margin-top: 2%;
+    margin-left: 2%;
+    max-height: 75%;
+    -webkit-box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+    box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+}
+​
+.grid{
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+​
+.grid > div {
+    flex-basis: calc(33% - 40px);
+}
