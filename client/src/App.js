@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
-import NavigationBar from './components/NavigationBar';
+import NavBar from './components/NavBar';
 import About from './components/About';
 import Home from './components/Home';
 import Create from './components/Create';
@@ -24,13 +24,13 @@ function App() {
 
   return(
     <Router>
-      <NavigationBar />
+      <NavBar />
       
       <Switch>
       <AuthProvider>
       <Route exact path='/' component={Home}/>
 
-      <Route  path='/edit/:id' component={Edit}/>      
+      <Route exact path='/edit/:id' component={Edit}/>      
 
       <PrivateRoute path='/details/:id' component={Details}/>
 
