@@ -7,9 +7,9 @@ import axios from 'axios';
 import './Box.css';
 
 const Details = () => {
-    const { id } = useParams();//grab the id for the blog id
+    const { id } = useParams();//grab the id for the post id
     // console.log('this is the id', id);   
-    const { data: posts, error, isPending } = useFetch(`/details/${id}`);
+    const { data: post, error, isPending } = useFetch(`/details/${id}`);
     
     const history = useHistory();//get the history object
 
@@ -35,35 +35,22 @@ const Details = () => {
         <div style={{textAlign: "center", fontSize: '1.5rem'}} className="posts-details">
             { isPending && <div>Loading...</div> }
             { error && <div>{ error }</div>}
-            { posts && (
-                <div className='post-container' style={{backgroundColor: '#d8d8e9'}}>
-                    
-                    <Card className='box-home-two' style={{width: '30rem', marginLeft: '500px', backgroundColor: 'white'}}>
-                    <Container>
-                    <Card.Img src={posts.imageUrl}  alt='motorcycle'/>
-                   
-                    <h2>{ posts.title }</h2>
-                    <br></br>
-                    <p>Written by { posts.creator }</p>
-                    <div> { posts.content }</div>
-                    <br></br>
-                    <h4>Created at: { posts.createAt }</h4>
-                    </Container>
+            { post && (
+                <div className='post-container'>
+                     <Card style={{ width: '45rem', marginLeft: '380px' }} key={post._id} className="box-home">
+                     <Card.Title>{post.title}</Card.Title>
+                    <Card.Img Image variant="top" src={post.imageUrl} />
+                    <Card.Body>
+                        
+                        <Card.Text>{post.content}</Card.Text>
+                        <Link to={`/edit/${post._id}`}>
+                            <Button variant="primary" size="lg" >Edit</Button>{' '}
+                            </Link>
+                            <Link to={`/delete/${post._id}`}>
+                            <Button variant="primary" size="lg" onClick={handleDelete}>Delete</Button>
+                            </Link>
+                    </Card.Body>
                     </Card>
-                    
-                    {/* <button onClick={handleClick}>delete</button> */}
-                    <Container style={{marginRight: '220px' }}>
-                    <Button variant="primary-dark">
-                        <Link to={`/edit/${posts._id}`}>
-                            <Nav.Link href="edit">Edit</Nav.Link>
-                        </Link>
-                    </Button>
-                    <Button onClick={handleDelete} variant="primary-dark">
-                        <Link to={`/delete/${posts._id}`}>
-                            <Nav.Link href="details">Delete</Nav.Link>
-                        </Link>
-                    </Button>
-                    </Container>
                     
                 </div>
             )}

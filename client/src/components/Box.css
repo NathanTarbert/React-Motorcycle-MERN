@@ -1,5 +1,8 @@
 .box-home{
-    background-color: #dadae2;
+    background-color: #9696a1;
+    color: white;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
     border-radius: 10px 10px 10px 10px;
     overflow: hidden;
     margin-top: 2%;
@@ -21,7 +24,7 @@
 }
 ​
 .box-home-two{
-    background-color: #d8d8e9;
+    background-color: #38385c;
     border-radius: 10px 10px 10px 10px;
     overflow: hidden;
     margin-top: 2%;
@@ -40,4 +43,9 @@
 ​
 .grid > div {
     flex-basis: calc(33% - 40px);
+}
+
+.post-container {
+   max-height: max-content;
+    background-color: rgb(47, 33, 177);
 }
