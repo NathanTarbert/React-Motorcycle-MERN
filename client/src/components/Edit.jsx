@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Nav, Button, Form, Container, Row, Col } from 'react-bootstrap';
 import { useHistory, useParams, Link } from "react-router-dom";
 import useFetch from "./useFetch";
-import { getPosts } from '../components/api';
-import axios from 'axios';
+// import { getPosts } from '../components/api';
+// import axios from 'axios';
 
 const Edit = () => {
     //post/setpost holds the existing object returned by mdb to populate form on page load
@@ -18,12 +18,6 @@ const Edit = () => {
         //this is grabbing the populated post object from the form input
         const newPost = { newTitle, newContent, newImageUrl, newCreator, newTags };
         console.log('this is newPost',newPost);
-        //this is to your express server port NOT REACT server port
-        // axios.post('/edit/' + id, newPost).then(() => history.push('/')).catch(err => console.log(err) );
-        // axios.get('/edit/' + id, newPost).then(() => history.push('/')).catch(err => console.log(err) );
-        //this fires the get all api so when index renders, the new post appears without hitting refresh
-        // getPosts();
-        // history.push('/');
 
         // setIsPending(true);
         fetch('/edit/'+ id, {

@@ -72,24 +72,6 @@
     color: #fff;
     font-size: 100px;
   }
-  
-  /* .marketing {
-    background-image: url('./images/img-6.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }
-  
-  .consulting {
-    /* background-image: url('./images/img-5.jpg');
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }  */
 
   div.card-title {
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -97,7 +79,7 @@
   font-weight: 800;
   color: rgb(236, 235, 238);
 }
-.post-container {
-  width: '1rem'
+div.post-container {
+  background-color: brown;
 }
 

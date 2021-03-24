@@ -7,12 +7,17 @@ import Create from './components/Create';
 import ErrorPage from './components/Error';
 import Details from './components/Details';
 import Login from './components/Login';
-import Register from './components/Register';
+import Signup from './components/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Button from './components/Button';
 import Search from './components/Search';
 import Edit from './components/Edit';
 // import Form from './components/Form';
+import { AuthProvider } from './contexts/AuthContext';
+import Profile from './components/Profile';
+import PrivateRoute from './components/PrivateRoute';
+import ForgotPassword from './components/ForgotPassword';
+import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   // const { id } = useParams();
@@ -22,25 +27,31 @@ function App() {
       <NavigationBar />
       
       <Switch>
-
+      <AuthProvider>
       <Route exact path='/' component={Home}/>
 
-      <Route exact path='/edit/:id' component={Edit}/>      
+      <Route  path='/edit/:id' component={Edit}/>      
 
-      <Route path='/details/:id' component={Details}/>
+      <PrivateRoute path='/details/:id' component={Details}/>
+
+      <PrivateRoute path='/update-profile/' component={UpdateProfile}/>
 
       <Route path='/about' component={About}/>
 
-      <Route path='/create' component={Create}/>
+      <PrivateRoute path='/create' component={Create}/>   
+
+      <PrivateRoute path='/profile' component={Profile}/>
+
+      <Route path='/signup' component={Signup}/>
 
       <Route path='/login' component={Login}/>
 
-      <Route path='/register' component={Register}/>
+      <Route path='/forgot-password' component={ForgotPassword}/>      
 
       <Route path='/search' component={Search}/>
-
+      </AuthProvider>
       <Route path='*' component={ErrorPage}/>
-
+      
       </Switch>     
       
     </Router>
