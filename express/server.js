@@ -53,7 +53,7 @@ app.use('/', require('./routes/postRoute'));
 app.use('/', require('./routes/userRoutes'));
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "notepad/build")));
+app.use(express.static(path.join(__dirname, "motorcycle-group/build")));
 
 var port = process.env.PORT || '3001';
 
