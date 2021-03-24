@@ -32,34 +32,24 @@ const Posts = () => {
 
         const renderCard = (card, index) => {
             return  ( 
-
-                <Card className="box-home" style={{ width: '22rem', height: '24rem' }} key={card._id} >               
-                <Card.Body>                
-                    <Card.Title>{card.creator}</Card.Title>
-                    <Card.Img variant="top" style={{width: '19rem'}} src={card.imageUrl} />
-                    <br></br>
-                    <Card.Text>{card.content}</Card.Text>   
-                    <Link to={`/details/${card._id}`}>
-                    <Button variant="primary">Details</Button>{' '}
-                    <Button variant="primary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button>
-                    </Link>                    
-                </Card.Body>
-                </Card>
-
-
-            
-            //    <Card className='box-home' style={{width: '28rem'}} key={card._id}>
-            //     <Card.Img variant="top" src={card.imageUrl} />
-            //     {/* <Container>
-            //     </Container> */}
-            //     <Link to={`/details/${card._id}`}><Button variant="outline-secondary"></Button>{' '}
-            //     <Button variant="outline-secondary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button>                
-            //     <Card.Body>
-            //     <Card.Text>{card.title}</Card.Text>
-            //     </Card.Body>          
-                
-            //     </Card>
-                       
+                <div className='container' >
+                    <div className='row'>
+                        <div className="col">
+                            <Card className="box-home"  key={card._id} >               
+                            <Card.Body>                
+                                <Card.Title>{card.creator}</Card.Title>
+                                <Card.Img variant="top" style={{width: '16rem'}} src={card.imageUrl} />
+                                <br></br>
+                                <Card.Text>{card.content}</Card.Text>   
+                                <Link to={`/details/${card._id}`}>
+                                <Button variant="primary">Details</Button>{' '}
+                                <Button variant="primary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button>
+                                </Link>                    
+                            </Card.Body>
+                            </Card>
+                        </div>
+                    </div>
+                </div>
             ) 
         }
         return <div className='grid'>{posts.map(renderCard)}</div>

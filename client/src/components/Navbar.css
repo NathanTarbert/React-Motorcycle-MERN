@@ -1,25 +1,27 @@
  .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background: linear-gradient(90deg, rgb(87, 138, 185) 0%, rgb(50, 36, 182) 100%);
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    margin-left: 50px;
+    margin-right: 50px;
   }
   
-  .navbar-logo {
+  /* .navbar-logo {
     color: #fff;
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
-  }
+  } */
   
-  .fa-firstdraft {
+  /* .fa-firstdraft {
     margin-left: 0.5rem;
     font-size: 1.6rem;
-  }
+  } */
   
   .nav-menu {
     display: grid;
