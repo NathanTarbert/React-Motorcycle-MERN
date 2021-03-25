@@ -37,6 +37,9 @@ const NavBar = () => {
       <Link to="/create">
         <ReactBootstrap.Nav.Link href="#create">Create Post</ReactBootstrap.Nav.Link>
       </Link>
+      <Link to="/about">
+        <ReactBootstrap.Nav.Link href="#about">About</ReactBootstrap.Nav.Link>
+      </Link>
     {/* <Link to="/edit">
     <ReactBootstrap.Nav.Link href="#edit">Edit</ReactBootstrap.Nav.Link>
     </Link> */}
