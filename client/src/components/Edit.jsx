@@ -103,6 +103,9 @@ const Edit = () => {
                                 />
                             </Form.Group>
                             <Form.Group>
+                            <Link to={`/`}>
+                            <Button variant="secondary" size="lg" >Home</Button>{' '}
+                            </Link>
                             <Button type="submit">Submit</Button>
                             </Form.Group>
                         </Form>

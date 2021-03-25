@@ -29,7 +29,7 @@ mongoose.connect(process.env.DB_URI,  {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+//cors
 app.use(cors({
   origin: 'http://localhost:3000', //<--location of the react app we are connecting to
   credenials: true
