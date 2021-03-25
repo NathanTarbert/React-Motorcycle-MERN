@@ -21,11 +21,13 @@ export default function Profile() {
 
   return (
     <>
+    <div className='container'>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <strong>Email:</strong> {currentUser.email}
+          <Card.Img variant="top" style={{width: '16rem'}} src={currentUser.imageUrl} />
           <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
             Update Profile
           </Link>
@@ -35,6 +37,7 @@ export default function Profile() {
         <Button variant="link" onClick={handleLogout}>
           Log Out
         </Button>
+      </div>
       </div>
     </>
   )

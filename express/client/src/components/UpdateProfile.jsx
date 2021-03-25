@@ -9,7 +9,8 @@ export default function UpdateProfile () {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const { currentUser, updateEmail, updatePassword } = useAuth();
+    const imageUrlRef = useRef()//this is a test, it may not work<------------------------------------
+    const { currentUser, updateEmail, updatePassword, updateImageUrl } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -30,6 +31,9 @@ export default function UpdateProfile () {
         if(passwordRef.current.value) {
             promises.push(updatePassword(passwordRef.current.value));
         }
+        if(imageUrlRef.current.value) {
+            promises.push(updateImageUrl(imageUrlRef.current.value));//this may not work, this is just a test for later
+        }
 
         Promise.all(promises).then(() => {
             history.push('/');
@@ -37,17 +41,7 @@ export default function UpdateProfile () {
             setError('Failed to update account');
         }).finally(() => {
             setLoading(false);
-        });
-
-        // try{
-        //     setError('');
-        //     setLoading(true);
-        //     // await signup(emailRef.current.value, passwordRef.current.value);
-        //     history.push('/');
-        // }catch(error) {
-        //     setError('Failed to create an account', error);  
-        // }
-        //     setLoading(false);        
+        }); 
     }
 
     return (
@@ -72,6 +66,12 @@ export default function UpdateProfile () {
                     <Form.Label>Password Confirmation</Form.Label>
                     <Form.Control type='password' placeholder='Leave blank to keep the same...' ref={passwordConfirmRef} />
                 </Form.Group>
+
+                <Form.Group id='ImageUrl'>
+                    <Form.Label>Image</Form.Label>
+                    <Form.Control type='Image' ref={imageUrlRef} placeholder='image goes here' required />
+                </Form.Group>
+
                 <Button disabled={loading} className='w-100' type='submit'>Update</Button>
             </Form>
             </Card.Body>

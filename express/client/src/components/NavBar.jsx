@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { Button } from './Button';
 import * as ReactBootstrap from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, } from 'react-router-dom';
 import { Card, Alert } from 'react-bootstrap';
 import './Navbar.css';
 import './Box.css';
@@ -25,7 +25,7 @@ const NavBar = () => {
  
 
   return ( 
-      <ReactBootstrap.Navbar bg="primary" expand="sm">
+      <ReactBootstrap.Navbar bg="primary" expand="lg">
     <ReactBootstrap.Navbar.Brand href="#home">Motorcycle Group</ReactBootstrap.Navbar.Brand>
     <ReactBootstrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
     <ReactBootstrap.Navbar.Collapse id="basic-navbar-nav">
@@ -50,7 +50,7 @@ const NavBar = () => {
     <ReactBootstrap.Nav.Link href="#profile">Profile</ReactBootstrap.Nav.Link>
     </Link>
     
-    <Card><Card.Body>{error && <Alert variant="danger">{error}</Alert>}</Card.Body></Card>
+    {/* <Card><Card.Body>{error && <Alert variant="danger">{error}</Alert>}</Card.Body></Card> */}
 
   </ReactBootstrap.Nav>
   <ReactBootstrap.Form inline>
