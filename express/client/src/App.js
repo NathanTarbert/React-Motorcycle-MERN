@@ -28,9 +28,9 @@ function App() {
       
       <Switch>
       <AuthProvider>
-      <Route exact path='/' component={Home}/>
+      <PrivateRoute exact path='/' component={Home}/>
 
-      <Route exact path='/edit/:id' component={Edit}/>      
+      <PrivateRoute exact path='/edit/:id' component={Edit}/>      
 
       <PrivateRoute path='/details/:id' component={Details}/>
 

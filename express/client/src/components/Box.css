@@ -51,3 +51,12 @@
    max-height: max-content;
     background-color: rgb(102, 101, 110);
 }
+
+.box-container {
+    max-height: max-content;
+    background-color: rgb(102, 101, 110);
+ }
+
+ .posts-details {
+     background-color: rgb(45, 58, 58);
+ }

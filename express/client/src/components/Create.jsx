@@ -1,7 +1,8 @@
 import { React, useState } from 'react';
 import axios from 'axios';
 // import { createPosts } from './api';
-import {useHistory} from "react-router-dom";
+import {useHistory, Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 const CreatePost = () => {
     const history = useHistory();
@@ -60,8 +61,10 @@ const CreatePost = () => {
                 <div className='form-group'>
                     <input onChange={handleChange} name='tags' value={input.tags} autoComplete='off' className='form-control' placeholder='tags here...'></input>
                 </div>               
-                
-                <button onClick={handleClick} className='btn btn-large btn-info'>Submit</button>
+                <Link to={`/`}>
+                    <Button variant="primary" size="lg" >Home</Button>{' '}
+                </Link>
+                <Button onClick={handleClick} className='btn btn-large btn-info'>Submit</Button>
             </form>
         </div>
       );
