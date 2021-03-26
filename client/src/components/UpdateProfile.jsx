@@ -69,7 +69,7 @@ export default function UpdateProfile () {
 
                 <Form.Group id='ImageUrl'>
                     <Form.Label>Image</Form.Label>
-                    <Form.Control type='Image' ref={imageUrlRef} placeholder='image goes here' required />
+                    <Form.Control type='ImageUrl' ref={imageUrlRef} placeholder='image goes here' required />
                 </Form.Group>
 
                 <Button disabled={loading} className='w-100' type='submit'>Update</Button>

@@ -12,14 +12,14 @@
     /* margin-right: 50px; */
   }
   
-  /* .navbar-logo {
+  .navbar-logo {
     color: #fff;
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
-  } */
+  }
   
   /* .fa-firstdraft {
     margin-left: 0.5rem;
@@ -43,17 +43,17 @@
     height: 80px;
   } */
   
-  /* .nav-links {
+  .nav-link {
     color: white;
-    text-decoration: none;
+    /* text-decoration: none; */
     padding: 0.5rem 1rem;
-  } */
+  }
   
-  /* .nav-links:hover {
-    background-color: #1888ff;
+   .nav-link:hover {
+    background-color: #bdc6cf;
     border-radius: 4px;
     transition: all 0.2s ease-out;
-  } */
+  } 
   
   /* .fa-bars {
     color: #fff;

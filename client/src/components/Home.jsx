@@ -32,19 +32,20 @@ const Posts = () => {
 
         const renderCard = (card) => {
             return  (                
-                <Card className="box-home"  key={card._id} style={{backgroundImage: 'url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapertag.com%2Fwallpaper%2Ffull%2Fd%2F9%2Ff%2F118466-cool-neutral-background-1920x1200-large-resolution.jpg&f=1&nofb=1)'}} >               
+                <Card className="box-home"  key={card._id} style={{ borderRadius: '20px', backgroundImage: 'url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapertag.com%2Fwallpaper%2Ffull%2Fd%2F9%2Ff%2F118466-cool-neutral-background-1920x1200-large-resolution.jpg&f=1&nofb=1)'}} >               
                 <Card.Body>                
-                    <Card.Title>{card.creator}</Card.Title>
-                    <Col xs={6} md={4}>
-                    <Image src={card.imageUrl} style={{width: '17rem'}} roundedCircle/>
-                    </Col>
+                    <Card.Title style={{backgroundColor: 'crimson', marginRight: '20px', fontWeight: '400'}}>Rider: {card.creator}</Card.Title>
                     <br></br>
+                    <Col xs={6} md={4}>
+                    <Image src={card.imageUrl} style={{width: '17rem', marginLeft: '50px'}} rounded/>
+                    </Col>
+                    <br></br><br></br>
                     <Card.Text>{card.content}</Card.Text>   
                     <Link to={`/details/${card._id}`}>
                     <Button variant="primary">Details</Button>{' '}
                     <Button variant="primary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button>
-                    </Link>
-                    <Card.Text>Tags: {card.tags}</Card.Text>                    
+                    </Link><br></br>
+                    <Card.Text style={{backgroundColor: 'crimson', marginRight: '20px', fontWeight: '400'}}>Tags: {card.tags}</Card.Text>                    
                 </Card.Body>
                 </Card>                        
             ) 
