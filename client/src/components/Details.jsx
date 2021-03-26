@@ -36,14 +36,15 @@ const Details = () => {
             { isPending && <div>Loading...</div> }
             { error && <div>{ error }</div>}
             { post && (
-                <div className='box-home'>                   
-                     <Card style={{ width: '45rem', height: '45rem', marginLeft: '380px' }} key={post._id} className="box-home">
+                <div className='box-home' style={{marginLeft: '50px', marginRight: '50px', marginTop: '50px', backgroundColor: 'rgb(184, 156, 149)'}}>                   
+                     <Card style={{ width: '45rem', height: '52rem', marginLeft: '380px' }} key={post._id} className="box-home">
                      <Card.Title style={{color: 'gray', fontWeight: 'bold'}}>{post.creator}</Card.Title>
                      <Card.Title style={{backgroundColor: 'AciveBorder'}}>{post.title}</Card.Title>
                         <Card.Img Image variant="top" src={post.imageUrl} />
-                        <Card.Body>
+                        <Card.Body className='card-body card-body1'>
                         
                         <Card.Text style={{backgroundColor: 'ActiveBorder'}}>{post.content}</Card.Text>
+                        <Card.Text style={{backgroundColor:'ActiveCaption'}}>Created:{post.createAt}</Card.Text>
                         <Link to={`/edit/${post._id}`}>
                             <Button variant="secondary" size="lg">Edit</Button>{' '}
                             </Link>
