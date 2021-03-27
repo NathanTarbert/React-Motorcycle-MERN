@@ -27,13 +27,13 @@ const NavBar = () => {
 
   return ( 
     <ReactBootstrap.Navbar bg="primary" expand="lg">
-    <ReactBootstrap.Navbar.Brand href="#home">Motorcycle Group</ReactBootstrap.Navbar.Brand>
+    <ReactBootstrap.Navbar.Brand className='logo' href="/">Motorcycle Group</ReactBootstrap.Navbar.Brand>
     <ReactBootstrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
     <ReactBootstrap.Navbar.Collapse id="basic-navbar-nav">
     <ReactBootstrap.Nav className="mr-auto">
-      <Link to="/">
-        <ReactBootstrap.Nav.Link href="#home">Posts</ReactBootstrap.Nav.Link>
-      </Link>
+      {/* <Link to="/">
+        <ReactBootstrap.Nav.Link href="/">Posts</ReactBootstrap.Nav.Link>
+      </Link> */}
       <Link to="/create">
         <ReactBootstrap.Nav.Link href="#create">Create Post</ReactBootstrap.Nav.Link>
       </Link>

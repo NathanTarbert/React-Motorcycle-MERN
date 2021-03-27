@@ -1,13 +1,12 @@
 .box-home{
-  background-color: #e9e9f0;
-  
+  background-color: #e9e9f0;  
   border-radius: 10px 10px 10px 10px;
   overflow: hidden;
   margin-top: 2%;
   margin-left: 2%;
   max-height: 75%;
-  -webkit-box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
-  box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 12 18px -6px rgba(187, 185, 185, 0.3);
+  box-shadow: 0px 12 18px -6px rgba(228, 226, 226, 0.3);
   height: auto;
   width:auto;
   color: white;
@@ -29,16 +28,19 @@
   margin-top: 5%;
   max-height: 75%;
   max-width: 50%;
-  -webkit-box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
-  box-shadow: 0px 12 18px -6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 12 18px -6px rgba(129, 125, 125, 0.3);
+  box-shadow: 0px 12 18px -6px rgba(121, 120, 120, 0.3);
 }
 
 input.form-control {
-  background-color: #ebe4e4;
+  background-color: #f0c76f;
+  -webkit-box-shadow: 0px 12 18px -6px rgba(134, 133, 133, 0.3);
+  box-shadow: 0px 12 18px -6px rgba(126, 125, 125, 0.3);
+  
 }
 
 textarea.form-control {
-  background-color: #ebe4e4;
+  background-color: #f0c76f;
 }
 
 .box{
@@ -65,9 +67,9 @@ textarea.form-control {
   margin-right: 500px;
 }
 
-/* .card-body {
-  background-color: rgb(184, 156, 149);
-} */
+.logo{
+  color: white;
+}
 
 /* .card-body1 {
   background-color: rgb(125, 133, 133);
