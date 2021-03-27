@@ -44,7 +44,7 @@ const CreatePost = () => {
 
     return (
         <div className='container'>
-            <h1>Create Post Page</h1>
+            <h1 style={{color: 'white'}}>Create Post Page</h1>
             <form>
                 <div className='form-group'>
                     <input onChange={handleChange} name='title' value={input.title} autoComplete='off' className='form-control' placeholder='title here...'></input>
@@ -60,11 +60,12 @@ const CreatePost = () => {
                 </div>
                 <div className='form-group'>
                     <input onChange={handleChange} name='tags' value={input.tags} autoComplete='off' className='form-control' placeholder='tags here...'></input>
-                </div>               
+                </div>              
+                
+                <Button onClick={handleClick} variant='secondary' className='btn btn-large btn-info'>Submit</Button>
                 <Link to={`/`}>
                     <Button variant="primary" size="lg" >Home</Button>{' '}
                 </Link>
-                <Button onClick={handleClick} className='btn btn-large btn-info'>Submit</Button>
             </form>
         </div>
       );
