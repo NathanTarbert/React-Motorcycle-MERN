@@ -43,10 +43,10 @@ const Posts = () => {
                     <Card.Text>{card.content}</Card.Text>   
                     <Link to={`/details/${card._id}`}>
                     <Button variant="primary">Details</Button>{' '}
-                    </Link><br></br>
-                    <Button variant="primary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button>
+                    </Link><br></br><br></br>
+                    {/* <Button variant="primary" onClick={() => setCount(likeCount + 1)}>Likes: <h2>{card.likeCount}</h2></Button> */}
                     
-                    <Card.Text style={{backgroundColor: 'crimson', marginRight: '20px', fontWeight: '400', borderRadius: '3px'}}>Tags: {card.tags}</Card.Text>                    
+                    <Card.Text style={{backgroundColor: 'crimson', marginRight: '20px', fontWeight: '400', borderRadius: '3px'}}>Locations travelled to: {card.tags}</Card.Text>                    
                 </Card.Body>
                 </Card>                        
             ) 

@@ -27,7 +27,7 @@ const NavBar = () => {
 
   return ( 
     <ReactBootstrap.Navbar bg="primary" expand="lg">
-    <ReactBootstrap.Navbar.Brand className='logo' href="/">Motorcycle Group</ReactBootstrap.Navbar.Brand>
+    <ReactBootstrap.Navbar.Brand className='logo' href="/">MOTO HOME</ReactBootstrap.Navbar.Brand>
     <ReactBootstrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
     <ReactBootstrap.Navbar.Collapse id="basic-navbar-nav">
     <ReactBootstrap.Nav className="mr-auto">
