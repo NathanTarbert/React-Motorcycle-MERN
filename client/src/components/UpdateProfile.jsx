@@ -9,8 +9,8 @@ export default function UpdateProfile () {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const imageUrlRef = useRef()//this is a test, it may not work<------------------------------------
-    const { currentUser, updateEmail, updatePassword, updateImageUrl } = useAuth();
+    // const imageUrlRef = useRef()//this is a test, it may not work<------------------------------------
+    const { currentUser, updateEmail, updatePassword } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -31,9 +31,9 @@ export default function UpdateProfile () {
         if(passwordRef.current.value) {
             promises.push(updatePassword(passwordRef.current.value));
         }
-        if(imageUrlRef.current.value) {
-            promises.push(updateImageUrl(imageUrlRef.current.value));//this may not work, this is just a test for later
-        }
+        // if(imageUrlRef.current.value) {
+        //     promises.push(updateImageUrl(imageUrlRef.current.value));//this may not work, this is just a test for later
+        // }
 
         Promise.all(promises).then(() => {
             history.push('/');
@@ -67,10 +67,10 @@ export default function UpdateProfile () {
                     <Form.Control type='password' placeholder='Leave blank to keep the same...' ref={passwordConfirmRef} />
                 </Form.Group>
 
-                <Form.Group id='ImageUrl'>
+                {/* <Form.Group id='ImageUrl'>
                     <Form.Label>Image</Form.Label>
                     <Form.Control type='ImageUrl' ref={imageUrlRef} placeholder='image goes here' required />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button disabled={loading} className='w-100' type='submit'>Update</Button>
             </Form>

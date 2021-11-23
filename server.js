@@ -22,7 +22,7 @@ mongoose.connect(process.env.DB_URI,  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-    .then( (res) => console.log('db connected'))
+    .then( (res) => console.log('db connected to motorcycle app!'))
     .catch((err) => console.log(err));
 
 //middleware
