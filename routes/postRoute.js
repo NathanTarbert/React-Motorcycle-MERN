@@ -15,8 +15,8 @@ router.get('/posts', async (req, res) => {//this is the home page
 //get post by id for the details page (working)
 router.get('/details/:id', getUser, (req, res) => {
     //returns json
-    let getDate = res.post.createAt;
-    console.log("details firing", getDate.getMonth(), getDate.getDate(), getDate.getFullYear() );
+    // let newDate = res.post.createAt;
+    // console.log(newDate.getMonth(), newDate.getDate(), newDate.getFullYear() );
     res.status(200).json(res.post);
 });
 
@@ -38,10 +38,10 @@ router.post('/create', async (req, res) => {// id is found by req.params.id
         tags: req.body.tags,
         createAt: req.body.createAt
     }); 
-    let newDate = new Date();
+    
     try {
         const newPost = await post.save();
-        console.log('createdAt: ',post.createAt.getMonth(), post.createAt.getDate(), post.createAt.getFullYear());
+        // console.log('createdAt: ',post.createAt.getMonth(), post.createAt.getDate(), post.createAt.getFullYear());
         res.status(201).json(newPost);
     } catch (err) {
         res.status(400).json({ message: err.message });
