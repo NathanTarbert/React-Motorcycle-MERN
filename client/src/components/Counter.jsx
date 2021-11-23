@@ -1,18 +1,18 @@
-import React from 'react';
+// import React from 'react';
 
-const Counter = () => {
+// const Counter = () => {
 
-   const LikeCounter = () => {
-        this.setState({
-        count: this.state.count + 1
-    });
-    };
+//    const LikeCounter = () => {
+//         this.setState({
+//         count: this.state.count + 1
+//     });
+//     };
     
-    return (
-        <div>
-            <p><button onClick={LikeCounter}></button>Likes: {this.state.count}</p>
-        </div>
-      );
-}
+//     return (
+//         <div>
+//             <p><button onClick={LikeCounter}></button>Likes: {this.state.count}</p>
+//         </div>
+//       );
+// }
  
-export default Counter;
+// export default Counter;

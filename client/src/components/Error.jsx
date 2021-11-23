@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
         <div className="not-found">
         <h2>Error</h2>
         <p>This page can not be found</p>
-        <Link to='/'>Back to the homepage...</Link>
+        <NavLink to="/">Back to the home page...</NavLink>
         </div>
       );
 }

@@ -10,7 +10,7 @@ const CreatePost = () => {
         title: '',
         imageUrl: '',
         content: '',
-        likeCount: '',
+        likeCount: Number,
         creator: '',
         tags: ''
     });

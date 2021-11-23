@@ -36,4 +36,4 @@ const { data: post, error, isPending } = useFetch(`/${id}`);
       </div>
     </form>
   );
-};
+// };

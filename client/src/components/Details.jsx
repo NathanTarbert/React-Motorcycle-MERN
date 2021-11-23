@@ -10,6 +10,7 @@ const Details = () => {
     const { id } = useParams();//grab the id for the post id
     // console.log('this is the id', id);   
     const { data: post, error, isPending } = useFetch(`/details/${id}`);
+    // console.log(post.createAt);
     
     const history = useHistory();//get the history object
 
@@ -21,6 +22,8 @@ const Details = () => {
     //         history.push('/');//re-routes the user back to the home page
     //     });
     // };
+
+
 
     const handleDelete = (e) => {
         //this prevents the page from default refreshing
@@ -44,7 +47,7 @@ const Details = () => {
                         <Card.Body className='card-body card-body1'>
                         
                         <Card.Text style={{backgroundColor: 'ActiveBorder'}}>{post.content}</Card.Text>
-                        <Card.Text style={{backgroundColor:'ActiveCaption'}}>Created:{post.createAt}</Card.Text>
+                        <Card.Text style={{backgroundColor:'ActiveCaption'}}>Date Created: {post.createAt}</Card.Text>
                         <Link to={`/edit/${post._id}`}>
                             <Button variant="secondary" size="lg">Edit</Button>{' '}
                             </Link>
@@ -52,8 +55,7 @@ const Details = () => {
                             <Button variant="secondary" size="lg" onClick={handleDelete}>Delete</Button>
                             </Link>
                     </Card.Body>
-                    </Card>
-                    
+                    </Card>                    
                 </div>
             )}
         </div>
