@@ -1,6 +1,5 @@
 # React-Motorcycle-MERN
-Notepad project connected to Mongo using Express/ React
+App is deployed here: https://motorcycle-group.herokuapp.com/
 
-This is an app that utilizes validation and 2 databases (MongoDB and Firebase). A user can log his/ her adventure by creating a post, editing and deleting it as well. 
-It also uses validation routing so if the user is logged in, they have full acces to all of the pages in the app. If they are not loggin in they can only view the log in
+This project connects to Mongo and Firebase using Express/ React. It utilizes validation that stores the users data on Firebase. Once the user is logged in they can create posts that are stored in MongoDB. The user can edit and delete as well with full acces to all of the pages in the app. If they are not logged in they can only view the log in
 or register page.
